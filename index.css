@@ -1,0 +1,193 @@
+*{
+
+}
+/* МОЖНО подлючить шрифты скачав их, но это замороченный процесс (если например гугл фонтс перестанет работать или там нету нужных шрифтов - СМОТРИ НА СКРИНШОТ*/
+body{
+   font-family: "League Spartan", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: weight;
+   font-style: normal;
+   /* margin: 0;
+   padding: 0; */
+   box-sizing: border-box;
+   padding-bottom: 100px;
+
+   /* ТЕКСТ */
+   text-align: justify; /* Текст прилепает к right/left/center/по ширине экрана */
+   text-decoration: none; /* Подчеркивание underline/overline/line-through(зачеркивает текст)/ */   /* Вспомогательные свойства какое будет подчеркивание: solid/dotted и др.*/  
+   text-shadow: 2px 2px 1px #818181; /* Смещение, блюр и цвет тени. Можно через консоль лучше и удобнее сделать */
+   text-transform: uppercase; /* верхний/нижний регистр и capitalize-увеличение каждой 1й буквы слова  */
+   text-indent: 10px; /* Красная строка */
+   letter-spacing: 5px; /* Расстояние между букв */
+   word-spacing: 3px; /* Расстояние между словами */
+   white-space: nowrap; /* Запрещаем тексту переносится */
+
+   /* Еденицы измерений 
+   Абсолютные - px
+   Относительные - EM и REM, %, VH и VW, VMIN и VMAX
+   */
+   font-size: 1.5em; /* Увеличивает размер относительно родителя = 16px * 1.5 */
+   font-size: 1.5rem; /* Увеличивает размер относительно html = 16px * 1.5 */
+   
+   /* ОСНОВНЫЕ СВОЙСВА!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+   box-sizing: border-box; /* Падинг учитывается в ширину Объекта - короче в обнуляющем файле указываем для всего и не паримся *{box-sizing: border-box;} */
+   overflow: auto; /* auto - добавляет скролл, hidden - скрывает то, что неумещается в блок - например текст (например вылазиет, когда ширина ограничена) */
+   border: 1px solid #333;
+   opacity: 1; /* прозрачность */
+   visibility: visible; /* hidden - элемент пропадает */
+
+   background: #333;
+   background: url("./images/ico.png") center / cover no-repeat; /* background-repeat: no-repeat; */   
+               /* center - background-position по x и y   cover - background-size - пишется через /*/
+   background-attachment: fixed; /* fixed - находится на месте и не скролится  */   
+   background-size: cover; /* можно в % для ширины и высоты - background-size: 100% auto;*/  
+   background: url("./images/ico.png") 30% 30% no-repeat, url("./images/watches3.png") center no-repeat; /* моэно комбинировать через запятую*/  
+   
+
+   background: linear-gradient(#da6d69,#5f48c2);
+   background: linear-gradient(180deg,#da6d69,#5f48c2 50%); /* 90deg - 90градусов,можно и словами/ % или px Указывают с каких пор этот цвет начнется - КОРОЧЕ много вариантов + можно много цветов*/
+   background: radial-gradient(#da6d69,#5f48c2);
+
+   position: relative;
+}
+.img{
+position: absolute; /* position: fixed; - прилепает и следует за скролом*/
+left: 50%;
+position: relative;
+}
+.img img{
+   position: sticky; /* Когда верхушка окна сайта коснется элемента, он будет следовать с нами, до конца его родителя*/
+   top: 0;
+}
+/* СМЕЩЕНИЕ */
+.trans_video{
+   transform: translate(-30px, 100px); /* по оси x и y */
+   transform: rotate(45deg); /* 45 градусов можно относительно всех осей x,y,z */
+   transform: scale(.8); /* увеличение обьекта можно относительно всех осей x,y,z*/
+   transform: skew(45deg); /* наклоняет (искжает) элемент в двумерном пространстве, превращая его из прямоугольника в параллелограмм, путём наклона по горизонтали и/или вертикали*/
+
+   transform: rotate(45deg); /* 45 градусов можно относительно всех осей x,y,z */
+   transform-origin: left top; /* можно в числах - создает полодение точки, относительно которой применяются трансформации - изначально она в центре */
+}
+
+/* transition - плавность перехода */
+button{
+   display: block;
+   background-color: #333;
+   color: #fff;
+   width: 300px;
+   height: 150px;
+   border: none;
+   transition: .5s .5s;
+   /* transition-duration: .5s; - количество секунд, в течении которых будет происходить переход */
+   transition-property: border-radius; /* плавно меняет только 1 свойство, остальные не трогает */
+   transition-delay: .5s; /* Задержка перед переходом */
+
+   transition: border-radius .5s, background-color .5s .5s;
+   transition-timing-function: ease; /* тип перехода - проще на ресурсах смотреть и там делать круче через спец. функции здесь же*/
+}
+button:hover{
+   background-color: #e24444;
+   border-radius: 100px;
+   font-size: 24px;
+}
+
+/* АНИМАЦИИ */
+.block{
+   height: 200px;
+   border: 1px solid black;
+   background-color: #444;
+   margin: 0px 50px;
+   position: relative;
+}
+.square{
+   background-color: #fff;
+   width: 200px;
+   height: 200px;
+   position: absolute;
+   animation: move-block 3s cubic-bezier(.62,1.4,1,-0.06) infinite alternate 1s, /* через запятую можно комбинировать анимации */
+   color-block 1s 3s forwards;
+   /* animation-duration: 3s; - время анимации */
+   /* animation-timing-function: ; тип анимации - проще на ресурсах смотреть и там делать круче через спец. функции здесь же*/
+   /* animation-iteration-count: 3 или infinite; количество повторений */
+   /* animation-direction: ; в каком направлении будет воспроизводиться анимация, позволяя ей проигрываться вперед, назад, чередовать прямое и обратное направление или оставаться в конечной точке*/
+   /* animation-delay: 1s; Задержка */
+   /* animation-fill-mode: forwards; говорит браузеру, как должен выглядеть элемент после окончания анимации, чтобы избежать резкого возврата к исходному состоянию или внезапного появления стилей последнего кадра*/
+}
+.square:hover{
+   animation-play-state: paused; /* управляет состоянием анимации, позволяя запустить (running) или приостановить (paused) её выполнение */
+}
+         /* Имя анимации */
+@keyframes move-block{
+   /* Как будет выглядеть обьект изначально */
+   0%{
+      left: 0;
+   }
+   50%{
+      border-radius: 100%;
+   }
+   /* Как будет выглядеть обьект в конце */
+   100%{
+      left: calc(100% - 200px);
+      border-radius: 100%;
+   }
+}
+@keyframes color-block{
+   100%{
+      background-color: #bd4949;
+   }
+}
+
+/* FLEXBOX !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.flex{
+   background: #434d86;
+   width: 600px;
+   height: 600px;
+   display: flex;
+
+   align-items: center; /* Центр по вертикали / flex-start/flex-end - тоже есть и у  justify-content*/
+   justify-content: center; /* Центр по горизонтали /space-around - пространство вокруг элемента /space-between(!!!!!!!!!!!ЧАЩЕ ВСЕГО!!!!!!!!!!!!!!)- пространство между элементами /space-evenly- пространство между границами и элементами */
+
+   flex-wrap: wrap; /* заставляет элементы переноситься на новую строку, если они не помещаются на одной */
+   flex-direction: column; /* row(умолч)/row-reverse/column/column-reverse - как флекс-элементы располагаются внутри своего контейнера, задавая направление главной оси — горизонтально (строкой) или вертикально (столбцом), включая возможность обратного расположения элементов */
+}
+.fb:first-child{
+   /* тоже самое но для одного элемента */
+   align-self: flex-end;
+   justify-self: flex-end;
+   order: 3; /* становится 3 элементом */
+   flex-grow: 1; /*  определяет, насколько один флекс-элемент может увеличиваться по сравнению с другими, когда в контейнере есть свободное место */
+   flex-shrink: 0; /*  насколько сильно должен сжиматься элемент, когда в контейнере недостаточно места для всех элементов */
+}
+.fb{
+   background: #ffffff;
+   border: 1px solid black;
+   box-sizing: border-box;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-basis: 150px; /* все элементы теперь занимают 30% по ширине*/
+   flex: 1 2 300px; /*  flex-grow flex-shrink flex-basis */
+}
+
+/* GRID !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! - короче гриды перемудренная тема, можешь изучить но позже */
+.grid{
+   background: #434d86;
+   width: 600px;
+   height: 600px;
+   display: grid;
+
+}
+.gb{
+   background: #ffffff;
+   border: 1px solid black;
+   box-sizing: border-box;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Site</title>
+   <!-- иконка -->
+   <link rel="shortcut icon" href="./images/ico.png" type="image/x-icon"> 
+   <!-- подключение шрифтов -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+   <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<!-- alt + стелочки вверх\вниз -> перемещаешь строку -->
+<!-- ctr + пробел -> подсказывает варианты (атрибутов) -->
+
+<!--  Валидность, Семантика и Доступность -> для поисковиков
+Валидность - Проверка на соответствие документа определенным технологическим стандартам - валидатор короче проверяет чтобы все атрибуты были заполнены
+Семантика - тег который придает смысл того, что в нем находится (header,main,footer)
+Доступность - для людей-инвалидов. Допустим СкринРеадер - понимает, только благодаря Семантическим тегам
+-->
+   <header>
+      <nav>
+         <ul>
+            <li>первый</li>
+            <li>второй</li>
+         </ul>
+      </nav>
+   </header>
+   <aside></aside>
+   <main></main>
+   <footer></footer>
+
+<!-- тег переносит строчку -->
+<br> 
+<!-- разделительная линия -->
+<hr> 
+
+<!-- Списки -->
+<ul>
+   <li>Не</li>
+   <li>нумерованный</li>
+</ul>
+
+<ol start="4" reversed>
+   <li>Нумерованный</li>
+   <li>начинается с 10</li>
+   <li>и переворачивает</li>
+   <li>с помощью атрибутов</li>
+</ol>
+
+<!-- Загрузить изображение с мменьшим разрешением - для оптимизации на мобильных устройств - Стилями управлять не удобно - ОТСТОЙ!!!!!!!!!!!!!-->
+<picture class="img">
+   <source media="(max-width: 1000px)" srcset="https://picsum.photos/300"> <!-- Сайт с динамичным фото -->
+   <source media="(max-width: 500px)" srcset="https://picsum.photos/150">
+   <img src="https://picsum.photos/600" alt="photo">
+</picture>
+<br>
+
+<!-- АУДИО и ВИДЕО файлы  - свои котроллеры на js-->
+<audio src="./images/audio.mp3" controls loop></audio> <!-- loop - позволяет бесконечно проигрывать-->         
+<video class="trans_video" src="./images/video.mp4" width="900" autoplay muted poster="./images/watches1.png" preload="meta" ></video> <!-- autoplay + muted - запускается каждый раз при загрузке страницы, если нету звука-->      <!-- poster превью-->
+<!-- preload при загрузке страницы:
+auto - видео загружается сразу  
+metadata - загружает информацию о видео, но не само видео
+none - ничего не будет загружатся 
+-->
+<!-- Если браузер не поддерживает webm - то запустится mp4  - также для audio-->
+<video width="900" controls>
+   <source src="./images/video.webm" type="video/webm">
+   <source src="./images/video.mp4" type="video/mp4">
+   Упс, ваш браузер не поддерживает вставку видео
+</video>
+<br>
+
+<!-- select и textarea-->
+<select name="choice" id="">     <!-- При отправке форма передаст выбранное значение choice=one, в случае с react - не обязателен-->
+   <option value="">-- Не выбрано --</option>
+   <option value="one">Выбери</option>
+   <option value="two">Один из</option>
+   <option value="three">Пунктов</option>
+</select>
+
+<textarea name="" id="" cols="30" rows="10"></textarea>
+
+<!-- label - Для семантики -->
+<label for="#area123">Введите имя</label>
+<input type="text" id="area123">           
+
+<!-- Тег для группирования элементов - с legend выглядит красиво -->
+<fieldset>
+   <legend>Я сгруппирован</legend>
+   <input type="text">       
+   <input type="text">       
+</fieldset>
+
+<!-- типы input -->
+<input type="text">
+<br>
+<input type="number">
+<br>
+<input type="password">
+<br>
+<input type="tel"> <!-- У пользователя отобразится клавиатура на телефоне -->
+<br>
+<input type="email"> <!-- и будут подсказки, также проверяет на валидность. Например @ -->
+<br>
+<input type="search"> <!-- есть крестик чтобы стереть -->
+<br>
+<input type="file"> 
+<br>
+<input type="url"> <!-- в чем особенность этого незнаю -->
+<br>
+<input type="date"> <!-- Дата -->
+<br>
+<input type="datetime-local"> <!-- Дата + время        Также есть отдельно и month, week, time -->
+<br>
+
+<!-- Атрибут name соединяет radio по имени -->
+<label>Поставь галочку</label>
+<input type="radio" name="testRadio">
+<input type="radio" name="testRadio">
+<input type="radio" name="testRadio">
+<br>
+
+<input type="checkbox">
+<br>
+
+<!-- схож с select, НО Можем написать и свой вариант -->
+<input list="list1">
+<datalist id="list1">
+   <option value="val1"></option>
+   <option value="val2"></option>
+   <option value="val3"></option>
+</datalist>
+
+<!-- АТРИБУТЫ -->
+<!-- tabindex - переключение элементов по порядку через TAB -->
+<input type="text" value="test" tabindex="1">
+<input type="text" value="test231" tabindex="2">
+<input type="text" value="test3333333" tabindex="2">
+
+<button>КНОПКА</button>
+<br>
+<div class="block">
+   <div class="square"></div>
+</div>
+<br>
+<div class="flex">
+   <div class="fb">1</div>
+   <div class="fb">2</div>
+   <div class="fb">3</div>
+</div>
+<br>
+<div class="grid">
+   <div class="gb">1</div>
+   <div class="gb">2</div>
+   <div class="gb">3</div>
+</div>
+</body>
+</html>

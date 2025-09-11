@@ -191,3 +191,31 @@ button:hover{
    text-align: center;
 
 }
+
+/*  */
+input::placeholder{
+   color: red;
+}
+
+/* media запросы */
+@media (max-width:2000px) { /* если меньше 2000px */
+  
+}
+.burder{
+   justify-self: center;
+   align-self: center;
+   cursor: pointer;
+}
+.burder div{
+   height: 6px;
+   width: 40px;
+   background-color: #93c248b2;
+   border-radius: 5px;
+   margin-bottom: 3px;
+}
+.burder div:last-child{
+   margin-bottom: 0px;
+}
+.burder:hover{
+   
+}
